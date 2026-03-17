@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>TradeSmart FX - Mobile Forex Course</title>
+    <title>TradeSmart FX - Mobile Forex Course by @asim_cfx</title>
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -25,7 +25,35 @@
             line-height: 1.4;
         }
 
-        /* Mobile Container - fits any phone */
+        /* Simple Fade In Up Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-up {
+            animation: fadeInUp 0.4s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.3s;
+        }
+
+        /* Mobile Container */
         .mobile-container {
             max-width: 100%;
             padding: 10px 12px;
@@ -72,7 +100,7 @@
             text-decoration: none;
         }
 
-        /* Creator Badge */
+        /* Creator Card */
         .creator-card {
             background: linear-gradient(135deg, #00c6fb20, #005bea20);
             border: 1px solid #00c6fb;
@@ -143,7 +171,7 @@
             margin-bottom: 15px;
         }
 
-        /* Navigation Row - Horizontal Scroll */
+        /* Navigation Row */
         .nav-row {
             display: flex;
             gap: 8px;
@@ -227,7 +255,7 @@
             font-weight: 500;
         }
 
-        /* Cards */
+        /* Cards Grid */
         .cards-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -240,6 +268,7 @@
             border: 1px solid #333;
             border-radius: 16px;
             padding: 15px;
+            cursor: pointer;
         }
 
         .card-header {
@@ -304,22 +333,6 @@
             margin-top: 8px;
         }
 
-        .learn-btn {
-            background: transparent;
-            border: 1px solid #00c6fb;
-            color: #00c6fb;
-            padding: 10px;
-            border-radius: 30px;
-            width: 100%;
-            font-size: 14px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 10px;
-        }
-
         /* Modal */
         .modal-overlay {
             display: none;
@@ -372,6 +385,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            cursor: pointer;
         }
 
         .modal-body {
@@ -459,6 +473,7 @@
             font-size: 14px;
             font-weight: 600;
             margin: 10px 0;
+            cursor: pointer;
         }
 
         .calc-result {
@@ -580,6 +595,14 @@
             width: 100%;
             font-size: 16px;
             font-weight: 600;
+            cursor: pointer;
+        }
+
+        .response-text {
+            text-align: center;
+            font-size: 12px;
+            color: #00c6fb;
+            margin-top: 8px;
         }
 
         /* Footer */
@@ -596,6 +619,7 @@
             justify-content: center;
             gap: 20px;
             margin: 15px 0;
+            flex-wrap: wrap;
         }
 
         .footer-links a {
@@ -628,17 +652,8 @@
             display: block;
         }
 
-        /* Utility */
         .text-center {
             text-align: center;
-        }
-
-        .mt-2 {
-            margin-top: 10px;
-        }
-
-        .mb-2 {
-            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -646,7 +661,7 @@
     <!-- Header -->
     <div class="header">
         <div class="mobile-container">
-            <div class="header-content">
+            <div class="header-content fade-up">
                 <div class="logo">
                     <h1>TradeSmart FX</h1>
                     <p>by @asim_cfx</p>
@@ -660,7 +675,7 @@
 
     <div class="mobile-container">
         <!-- Creator Card -->
-        <div class="creator-card">
+        <div class="creator-card fade-up delay-1">
             <div class="creator-icon">
                 <i class="fas fa-user"></i>
             </div>
@@ -672,7 +687,7 @@
         </div>
 
         <!-- Navigation Row -->
-        <div class="nav-row">
+        <div class="nav-row fade-up delay-2">
             <button class="nav-btn active" onclick="showSection('home')">
                 <i class="fas fa-home"></i> Home
             </button>
@@ -708,7 +723,7 @@
 
         <!-- HOME SECTION -->
         <div id="home" class="section active">
-            <div class="hero">
+            <div class="hero fade-up">
                 <h2>Master <span>Forex Trading</span></h2>
                 <p>Complete Forex course in English & Nepali</p>
                 <div style="display: flex; gap: 8px; justify-content: center;">
@@ -719,54 +734,54 @@
                 </div>
             </div>
 
-            <div class="section-title">
+            <div class="section-title fade-up delay-1">
                 <i class="fas fa-compass"></i>
                 <span>Quick Access</span>
             </div>
 
             <div class="category-grid">
-                <div class="category-item" onclick="showSection('basics')">
+                <div class="category-item fade-up" onclick="showSection('basics')">
                     <i class="fas fa-chart-pie"></i>
                     <span>Basics</span>
                 </div>
-                <div class="category-item" onclick="showSection('indicators')">
+                <div class="category-item fade-up delay-1" onclick="showSection('indicators')">
                     <i class="fas fa-chart-line"></i>
                     <span>Indicators</span>
                 </div>
-                <div class="category-item" onclick="showSection('patterns')">
+                <div class="category-item fade-up delay-2" onclick="showSection('patterns')">
                     <i class="fas fa-candles"></i>
                     <span>Patterns</span>
                 </div>
-                <div class="category-item" onclick="showSection('smc')">
+                <div class="category-item fade-up delay-3" onclick="showSection('smc')">
                     <i class="fas fa-brain"></i>
                     <span>SMC</span>
                 </div>
-                <div class="category-item" onclick="showSection('risk')">
+                <div class="category-item fade-up" onclick="showSection('risk')">
                     <i class="fas fa-shield"></i>
                     <span>Risk</span>
                 </div>
-                <div class="category-item" onclick="showSection('tools')">
+                <div class="category-item fade-up delay-1" onclick="showSection('tools')">
                     <i class="fas fa-calculator"></i>
                     <span>Tools</span>
                 </div>
-                <div class="category-item" onclick="showSection('charts')">
+                <div class="category-item fade-up delay-2" onclick="showSection('charts')">
                     <i class="fas fa-chart-simple"></i>
                     <span>Charts</span>
                 </div>
-                <div class="category-item" onclick="showSection('contact')">
+                <div class="category-item fade-up delay-3" onclick="showSection('contact')">
                     <i class="fas fa-envelope"></i>
                     <span>Contact</span>
                 </div>
             </div>
 
-            <div class="section-title">
+            <div class="section-title fade-up">
                 <i class="fas fa-star"></i>
                 <span>Popular Topics</span>
             </div>
 
             <div class="cards-grid">
                 <!-- Pips Card -->
-                <div class="card" onclick="openTopic('pips')">
+                <div class="card fade-up" onclick="openTopic('pips')">
                     <div class="card-header">
                         <div class="card-icon"><i class="fas fa-arrows-up-down"></i></div>
                         <div class="card-title">
@@ -779,11 +794,10 @@
                         <span class="tag">Basics</span>
                         <span class="tag">Essential</span>
                     </div>
-                    <div class="nepali-text">📌 पिप भनेको मुद्रा जोडीको सबैभन्दा सानो मूल्य परिवर्तन हो।</div>
                 </div>
 
                 <!-- Lots Card -->
-                <div class="card" onclick="openTopic('lots')">
+                <div class="card fade-up delay-1" onclick="openTopic('lots')">
                     <div class="card-header">
                         <div class="card-icon"><i class="fas fa-weight-scale"></i></div>
                         <div class="card-title">
@@ -799,7 +813,7 @@
                 </div>
 
                 <!-- Leverage Card -->
-                <div class="card" onclick="openTopic('leverage')">
+                <div class="card fade-up delay-2" onclick="openTopic('leverage')">
                     <div class="card-header">
                         <div class="card-icon"><i class="fas fa-rocket"></i></div>
                         <div class="card-title">
@@ -814,10 +828,6 @@
                     </div>
                 </div>
             </div>
-
-            <button class="learn-btn" onclick="showSection('basics')">
-                <i class="fas fa-arrow-right"></i> View All Basics
-            </button>
         </div>
 
         <!-- BASICS SECTION -->
@@ -828,7 +838,6 @@
             </div>
 
             <div class="cards-grid">
-                <!-- All Basics Cards -->
                 <div class="card" onclick="openTopic('pips')">
                     <div class="card-header">
                         <div class="card-icon"><i class="fas fa-arrows-up-down"></i></div>
@@ -893,39 +902,6 @@
                         </div>
                     </div>
                     <div class="card-desc">Interest for holding positions overnight. Triple on Wednesday.</div>
-                </div>
-
-                <div class="card" onclick="openTopic('commission')">
-                    <div class="card-header">
-                        <div class="card-icon"><i class="fas fa-dollar-sign"></i></div>
-                        <div class="card-title">
-                            <h4>Commission</h4>
-                            <p>Trading Fee</p>
-                        </div>
-                    </div>
-                    <div class="card-desc">Fee per trade. Usually $3-7 per lot round turn.</div>
-                </div>
-
-                <div class="card" onclick="openTopic('slippage')">
-                    <div class="card-header">
-                        <div class="card-icon"><i class="fas fa-bolt"></i></div>
-                        <div class="card-title">
-                            <h4>Slippage</h4>
-                            <p>Price Difference</p>
-                        </div>
-                    </div>
-                    <div class="card-desc">Order executes at different price than expected.</div>
-                </div>
-
-                <div class="card" onclick="openTopic('sessions')">
-                    <div class="card-header">
-                        <div class="card-icon"><i class="fas fa-clock"></i></div>
-                        <div class="card-title">
-                            <h4>Trading Sessions</h4>
-                            <p>London, NY, Tokyo</p>
-                        </div>
-                    </div>
-                    <div class="card-desc">Best times: London & NY overlap (8 AM - 12 PM EST)</div>
                 </div>
             </div>
         </div>
@@ -1006,25 +982,28 @@
             </div>
         </div>
 
-        <!-- PATTERNS SECTION -->
+        <!-- PATTERNS SECTION - 10 CANDLESTICK PATTERNS -->
         <div id="patterns" class="section">
             <div class="section-title">
                 <i class="fas fa-candles"></i>
-                <span>Candlestick Patterns</span>
+                <span>Candlestick Patterns (10)</span>
             </div>
 
             <div class="cards-grid">
+                <!-- Doji -->
                 <div class="card" onclick="openTopic('doji')">
                     <div class="card-header">
                         <div class="card-icon"><i class="fas fa-minus"></i></div>
                         <div class="card-title">
                             <h4>Doji</h4>
-                            <p>Indecision</p>
+                            <p>Indecision Pattern</p>
                         </div>
                     </div>
-                    <div class="card-desc">Open and close equal. Shows market indecision.</div>
+                    <div class="card-desc">Open and close are equal. Shows market indecision.</div>
+                    <div class="card-tags"><span class="tag">Reversal</span></div>
                 </div>
 
+                <!-- Hammer -->
                 <div class="card" onclick="openTopic('hammer')">
                     <div class="card-header">
                         <div class="card-icon"><i class="fas fa-hammer"></i></div>
@@ -1033,18 +1012,112 @@
                             <p>Bullish Reversal</p>
                         </div>
                     </div>
-                    <div class="card-desc">Long lower wick after downtrend. Buying pressure.</div>
+                    <div class="card-desc">Long lower wick after downtrend. Shows buying pressure.</div>
+                    <div class="card-tags"><span class="tag">Bullish</span></div>
                 </div>
 
+                <!-- Shooting Star -->
+                <div class="card" onclick="openTopic('shootingstar')">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-star"></i></div>
+                        <div class="card-title">
+                            <h4>Shooting Star</h4>
+                            <p>Bearish Reversal</p>
+                        </div>
+                    </div>
+                    <div class="card-desc">Long upper wick after uptrend. Shows selling pressure.</div>
+                    <div class="card-tags"><span class="tag">Bearish</span></div>
+                </div>
+
+                <!-- Engulfing -->
                 <div class="card" onclick="openTopic('engulfing')">
                     <div class="card-header">
                         <div class="card-icon"><i class="fas fa-circle"></i></div>
                         <div class="card-title">
                             <h4>Engulfing</h4>
-                            <p>Reversal Pattern</p>
+                            <p>Bullish/Bearish</p>
                         </div>
                     </div>
-                    <div class="card-desc">Second candle completely engulfs first.</div>
+                    <div class="card-desc">Second candle completely covers first. Strong reversal signal.</div>
+                    <div class="card-tags"><span class="tag">Reversal</span></div>
+                </div>
+
+                <!-- Morning Star -->
+                <div class="card" onclick="openTopic('morningstar')">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-sun"></i></div>
+                        <div class="card-title">
+                            <h4>Morning Star</h4>
+                            <p>Bullish Reversal</p>
+                        </div>
+                    </div>
+                    <div class="card-desc">Three candles: bearish, small, bullish. Strong bottom signal.</div>
+                    <div class="card-tags"><span class="tag">Bullish</span></div>
+                </div>
+
+                <!-- Evening Star -->
+                <div class="card" onclick="openTopic('eveningstar')">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-moon"></i></div>
+                        <div class="card-title">
+                            <h4>Evening Star</h4>
+                            <p>Bearish Reversal</p>
+                        </div>
+                    </div>
+                    <div class="card-desc">Three candles: bullish, small, bearish. Strong top signal.</div>
+                    <div class="card-tags"><span class="tag">Bearish</span></div>
+                </div>
+
+                <!-- Harami -->
+                <div class="card" onclick="openTopic('harami')">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-circle"></i></div>
+                        <div class="card-title">
+                            <h4>Harami</h4>
+                            <p>Pregnant Pattern</p>
+                        </div>
+                    </div>
+                    <div class="card-desc">Small candle inside previous large candle. Reversal signal.</div>
+                    <div class="card-tags"><span class="tag">Reversal</span></div>
+                </div>
+
+                <!-- Piercing Line -->
+                <div class="card" onclick="openTopic('piercing')">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-arrow-right"></i></div>
+                        <div class="card-title">
+                            <h4>Piercing Line</h4>
+                            <p>Bullish Reversal</p>
+                        </div>
+                    </div>
+                    <div class="card-desc">Bullish candle closes above 50% of previous bearish candle.</div>
+                    <div class="card-tags"><span class="tag">Bullish</span></div>
+                </div>
+
+                <!-- Dark Cloud -->
+                <div class="card" onclick="openTopic('darkcloud')">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-cloud"></i></div>
+                        <div class="card-title">
+                            <h4>Dark Cloud</h4>
+                            <p>Bearish Reversal</p>
+                        </div>
+                    </div>
+                    <div class="card-desc">Bearish candle closes below 50% of previous bullish candle.</div>
+                    <div class="card-tags"><span class="tag">Bearish</span></div>
+                </div>
+
+                <!-- Three White Soldiers -->
+                <div class="card" onclick="openTopic('whitesoldiers')">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-arrow-up"></i></div>
+                        <div class="card-title">
+                            <h4>Three Soldiers</h4>
+                            <p>Bullish Continuation</p>
+                        </div>
+                    </div>
+                    <div class="card-desc">Three long bullish candles. Strong uptrend signal.</div>
+                    <div class="card-tags"><span class="tag">Bullish</span></div>
                 </div>
             </div>
         </div>
@@ -1256,6 +1329,7 @@
                 <input type="email" placeholder="Your Email" required>
                 <textarea placeholder="Your Message... (नेपालीमा पनि लेख्न सक्नुहुन्छ)" required></textarea>
                 <button type="submit">Send to @asim_cfx</button>
+                <div class="response-text">⏰ You will get a response within 24 hours</div>
             </form>
 
             <p class="text-center" style="color: #00c6fb; font-style: italic; margin-top: 15px;">
@@ -1269,6 +1343,7 @@
                 <a href="#" onclick="showSection('home')">Home</a>
                 <a href="#" onclick="showSection('basics')">Basics</a>
                 <a href="#" onclick="showSection('indicators')">Indicators</a>
+                <a href="#" onclick="showSection('patterns')">Patterns</a>
                 <a href="#" onclick="showSection('contact')">Contact</a>
             </div>
             <div class="footer-credit">
@@ -1297,6 +1372,7 @@
             
             let content = '';
 
+            // BASICS
             if (topic === 'pips') {
                 content = `
                     <div class="modal-header">
@@ -1307,7 +1383,6 @@
                         <div class="modal-section">
                             <h4>What is a Pip?</h4>
                             <p>A pip is the smallest price move in Forex. For most pairs: 1 pip = 0.0001. For JPY pairs: 1 pip = 0.01.</p>
-                            <div class="example-box">📌 EUR/USD 1.1000 to 1.1001 = 1 pip</div>
                         </div>
                         <div class="modal-section">
                             <h4>Pip Value</h4>
@@ -1316,7 +1391,8 @@
                         <div class="nepali-text">पिप भनेको मुद्रा जोडीको सबैभन्दा सानो मूल्य परिवर्तन हो।</div>
                     </div>
                 `;
-            } else if (topic === 'lots') {
+            }
+            else if (topic === 'lots') {
                 content = `
                     <div class="modal-header">
                         <h3><i class="fas fa-weight-scale"></i> Lots</h3>
@@ -1325,16 +1401,16 @@
                     <div class="modal-body">
                         <div class="modal-section">
                             <h4>Lot Sizes</h4>
-                            <p>Standard Lot = 100,000 units<br>Mini Lot = 10,000 units<br>Micro Lot = 1,000 units<br>Nano Lot = 100 units</p>
+                            <p>Standard Lot = 100,000 units<br>Mini Lot = 10,000 units<br>Micro Lot = 1,000 units</p>
                         </div>
                         <div class="modal-section">
                             <h4>Pip Values</h4>
                             <p>Standard = $10 per pip<br>Mini = $1 per pip<br>Micro = $0.10 per pip</p>
                         </div>
-                        <div class="nepali-text">स्ट्यान्डर्ड लट = १००,००० युनिट, मिनी लट = १०,००० युनिट</div>
                     </div>
                 `;
-            } else if (topic === 'leverage') {
+            }
+            else if (topic === 'leverage') {
                 content = `
                     <div class="modal-header">
                         <h3><i class="fas fa-rocket"></i> Leverage</h3>
@@ -1349,12 +1425,10 @@
                             <h4>Common Ratios</h4>
                             <p>1:10 (Conservative)<br>1:100 (Common)<br>1:500 (High Risk)</p>
                         </div>
-                        <div class="warning-box" style="background: #ff444420; padding: 10px; border-radius: 8px;">
-                            ⚠️ High leverage = High risk! Can wipe account quickly.
-                        </div>
                     </div>
                 `;
-            } else if (topic === 'margin') {
+            }
+            else if (topic === 'margin') {
                 content = `
                     <div class="modal-header">
                         <h3><i class="fas fa-lock"></i> Margin</h3>
@@ -1371,7 +1445,8 @@
                         </div>
                     </div>
                 `;
-            } else if (topic === 'spread') {
+            }
+            else if (topic === 'spread') {
                 content = `
                     <div class="modal-header">
                         <h3><i class="fas fa-arrows-left-right"></i> Spread</h3>
@@ -1388,10 +1463,11 @@
                         </div>
                     </div>
                 `;
-            } else if (topic === 'swap') {
+            }
+            else if (topic === 'swap') {
                 content = `
                     <div class="modal-header">
-                        <h3><i class="fas fa-clock"></i> Swap / Rollover</h3>
+                        <h3><i class="fas fa-clock"></i> Swap</h3>
                         <button class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></button>
                     </div>
                     <div class="modal-body">
@@ -1401,7 +1477,9 @@
                         </div>
                     </div>
                 `;
-            } else if (topic === 'ema') {
+            }
+            // INDICATORS
+            else if (topic === 'ema') {
                 content = `
                     <div class="modal-header">
                         <h3><i class="fas fa-chart-line"></i> EMA</h3>
@@ -1418,7 +1496,8 @@
                         </div>
                     </div>
                 `;
-            } else if (topic === 'rsi') {
+            }
+            else if (topic === 'rsi') {
                 content = `
                     <div class="modal-header">
                         <h3><i class="fas fa-wave-square"></i> RSI</h3>
@@ -1435,7 +1514,8 @@
                         </div>
                     </div>
                 `;
-            } else if (topic === 'macd') {
+            }
+            else if (topic === 'macd') {
                 content = `
                     <div class="modal-header">
                         <h3><i class="fas fa-chart-gantt"></i> MACD</h3>
@@ -1448,7 +1528,8 @@
                         </div>
                     </div>
                 `;
-            } else if (topic === 'bollinger') {
+            }
+            else if (topic === 'bollinger') {
                 content = `
                     <div class="modal-header">
                         <h3><i class="fas fa-chart-scatter"></i> Bollinger Bands</h3>
@@ -1461,7 +1542,8 @@
                         </div>
                     </div>
                 `;
-            } else if (topic === 'fibonacci') {
+            }
+            else if (topic === 'fibonacci') {
                 content = `
                     <div class="modal-header">
                         <h3><i class="fas fa-chart-pie"></i> Fibonacci</h3>
@@ -1474,10 +1556,216 @@
                         </div>
                     </div>
                 `;
-            } else if (topic === 'liquidity') {
+            }
+            else if (topic === 'atr') {
                 content = `
                     <div class="modal-header">
-                        <h3><i class="fas fa-water"></i> Liquidity (SMC)</h3>
+                        <h3><i class="fas fa-arrow-up-wide-short"></i> ATR</h3>
+                        <button class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-section">
+                            <h4>Average True Range</h4>
+                            <p>Measures market volatility. Used for stop loss placement and position sizing.</p>
+                        </div>
+                    </div>
+                `;
+            }
+            // PATTERNS - 10 patterns
+            else if (topic === 'doji') {
+                content = `
+                    <div class="modal-header">
+                        <h3><i class="fas fa-minus"></i> Doji</h3>
+                        <button class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-section">
+                            <h4>What is a Doji?</h4>
+                            <p>A Doji forms when open and close prices are equal. Shows market indecision.</p>
+                        </div>
+                        <div class="modal-section">
+                            <h4>Types</h4>
+                            <p>• Standard Doji: Open = Close<br>• Dragonfly: Long lower wick (bullish)<br>• Gravestone: Long upper wick (bearish)</p>
+                        </div>
+                        <div class="example-box">Appears after uptrend = Potential reversal down<br>After downtrend = Potential reversal up</div>
+                    </div>
+                `;
+            }
+            else if (topic === 'hammer') {
+                content = `
+                    <div class="modal-header">
+                        <h3><i class="fas fa-hammer"></i> Hammer</h3>
+                        <button class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-section">
+                            <h4>What is a Hammer?</h4>
+                            <p>Bullish reversal pattern after downtrend. Small body at top with long lower wick (2x body).</p>
+                        </div>
+                        <div class="modal-section">
+                            <h4>Signal</h4>
+                            <p>Shows buyers stepped in after sellers pushed price down. Bullish reversal.</p>
+                        </div>
+                    </div>
+                `;
+            }
+            else if (topic === 'shootingstar') {
+                content = `
+                    <div class="modal-header">
+                        <h3><i class="fas fa-star"></i> Shooting Star</h3>
+                        <button class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-section">
+                            <h4>What is a Shooting Star?</h4>
+                            <p>Bearish reversal pattern after uptrend. Small body at bottom with long upper wick.</p>
+                        </div>
+                        <div class="modal-section">
+                            <h4>Signal</h4>
+                            <p>Shows sellers stepped in after buyers pushed price up. Bearish reversal.</p>
+                        </div>
+                    </div>
+                `;
+            }
+            else if (topic === 'engulfing') {
+                content = `
+                    <div class="modal-header">
+                        <h3><i class="fas fa-circle"></i> Engulfing</h3>
+                        <button class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-section">
+                            <h4>What is Engulfing?</h4>
+                            <p>Two-candle pattern where second candle completely covers first.</p>
+                        </div>
+                        <div class="modal-section">
+                            <h4>Bullish Engulfing</h4>
+                            <p>After downtrend: Bearish candle followed by larger bullish candle = Buy signal</p>
+                        </div>
+                        <div class="modal-section">
+                            <h4>Bearish Engulfing</h4>
+                            <p>After uptrend: Bullish candle followed by larger bearish candle = Sell signal</p>
+                        </div>
+                    </div>
+                `;
+            }
+            else if (topic === 'morningstar') {
+                content = `
+                    <div class="modal-header">
+                        <h3><i class="fas fa-sun"></i> Morning Star</h3>
+                        <button class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-section">
+                            <h4>What is Morning Star?</h4>
+                            <p>Three-candle bullish reversal after downtrend. Very strong signal.</p>
+                        </div>
+                        <div class="modal-section">
+                            <h4>Pattern</h4>
+                            <p>1. Long bearish candle<br>2. Small indecision candle<br>3. Long bullish candle</p>
+                        </div>
+                    </div>
+                `;
+            }
+            else if (topic === 'eveningstar') {
+                content = `
+                    <div class="modal-header">
+                        <h3><i class="fas fa-moon"></i> Evening Star</h3>
+                        <button class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-section">
+                            <h4>What is Evening Star?</h4>
+                            <p>Three-candle bearish reversal after uptrend. Strong top signal.</p>
+                        </div>
+                        <div class="modal-section">
+                            <h4>Pattern</h4>
+                            <p>1. Long bullish candle<br>2. Small indecision candle<br>3. Long bearish candle</p>
+                        </div>
+                    </div>
+                `;
+            }
+            else if (topic === 'harami') {
+                content = `
+                    <div class="modal-header">
+                        <h3><i class="fas fa-circle"></i> Harami</h3>
+                        <button class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-section">
+                            <h4>What is Harami?</h4>
+                            <p>Two-candle pattern where second candle is inside body of first. Means "pregnant" in Japanese.</p>
+                        </div>
+                        <div class="modal-section">
+                            <h4>Bullish Harami</h4>
+                            <p>First: Long bearish, Second: Small bullish inside = Reversal up</p>
+                        </div>
+                        <div class="modal-section">
+                            <h4>Bearish Harami</h4>
+                            <p>First: Long bullish, Second: Small bearish inside = Reversal down</p>
+                        </div>
+                    </div>
+                `;
+            }
+            else if (topic === 'piercing') {
+                content = `
+                    <div class="modal-header">
+                        <h3><i class="fas fa-arrow-right"></i> Piercing Line</h3>
+                        <button class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-section">
+                            <h4>What is Piercing Line?</h4>
+                            <p>Two-candle bullish reversal after downtrend.</p>
+                        </div>
+                        <div class="modal-section">
+                            <h4>Pattern</h4>
+                            <p>1. Long bearish candle<br>2. Bullish candle opens lower but closes above 50% of first candle's body</p>
+                        </div>
+                    </div>
+                `;
+            }
+            else if (topic === 'darkcloud') {
+                content = `
+                    <div class="modal-header">
+                        <h3><i class="fas fa-cloud"></i> Dark Cloud Cover</h3>
+                        <button class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-section">
+                            <h4>What is Dark Cloud Cover?</h4>
+                            <p>Two-candle bearish reversal after uptrend.</p>
+                        </div>
+                        <div class="modal-section">
+                            <h4>Pattern</h4>
+                            <p>1. Long bullish candle<br>2. Bearish candle opens higher but closes below 50% of first candle's body</p>
+                        </div>
+                    </div>
+                `;
+            }
+            else if (topic === 'whitesoldiers') {
+                content = `
+                    <div class="modal-header">
+                        <h3><i class="fas fa-arrow-up"></i> Three White Soldiers</h3>
+                        <button class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-section">
+                            <h4>What are Three White Soldiers?</h4>
+                            <p>Three long bullish candles with higher closes. Shows strong buying pressure.</p>
+                        </div>
+                        <div class="modal-section">
+                            <h4>Characteristics</h4>
+                            <p>✅ Each candle opens within previous body<br>✅ Each closes higher than previous<br>✅ Strong uptrend signal</p>
+                        </div>
+                    </div>
+                `;
+            }
+            // SMC
+            else if (topic === 'liquidity') {
+                content = `
+                    <div class="modal-header">
+                        <h3><i class="fas fa-water"></i> Liquidity</h3>
                         <button class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></button>
                     </div>
                     <div class="modal-body">
@@ -1491,7 +1779,8 @@
                         </div>
                     </div>
                 `;
-            } else if (topic === 'orderblocks') {
+            }
+            else if (topic === 'orderblocks') {
                 content = `
                     <div class="modal-header">
                         <h3><i class="fas fa-cubes"></i> Order Blocks</h3>
@@ -1504,7 +1793,8 @@
                         </div>
                     </div>
                 `;
-            } else if (topic === 'fvg') {
+            }
+            else if (topic === 'fvg') {
                 content = `
                     <div class="modal-header">
                         <h3><i class="fas fa-gap"></i> Fair Value Gap</h3>
@@ -1515,10 +1805,11 @@
                             <h4>What is FVG?</h4>
                             <p>Gap between candles from fast moves. Price often returns to fill these gaps.</p>
                         </div>
-                        <div class="nepali-text">FVG भनेको तीव्र गतिमा बजार चल्दा क्यान्डलहरू बीच बनेको ग्याप हो।</div>
                     </div>
                 `;
-            } else if (topic === 'onepercent') {
+            }
+            // Risk
+            else if (topic === 'onepercent') {
                 content = `
                     <div class="modal-header">
                         <h3><i class="fas fa-percent"></i> 1% Rule</h3>
@@ -1529,10 +1820,11 @@
                             <h4>Never risk more than 1-2% per trade</h4>
                             <p>$1000 account = Max $10-20 risk per trade. This protects your account.</p>
                         </div>
-                        <div class="example-box">📌 If you risk 1% and lose 10 trades, you still have 90% capital.</div>
+                        <div class="example-box">If you risk 1% and lose 10 trades, you still have 90% capital.</div>
                     </div>
                 `;
-            } else if (topic === 'stoploss') {
+            }
+            else if (topic === 'stoploss') {
                 content = `
                     <div class="modal-header">
                         <h3><i class="fas fa-stop"></i> Stop Loss</h3>
@@ -1545,7 +1837,8 @@
                         </div>
                     </div>
                 `;
-            } else if (topic === 'rr') {
+            }
+            else if (topic === 'rr') {
                 content = `
                     <div class="modal-header">
                         <h3><i class="fas fa-scale-balanced"></i> Risk:Reward Ratio</h3>
@@ -1558,7 +1851,8 @@
                         </div>
                     </div>
                 `;
-            } else {
+            }
+            else {
                 content = `
                     <div class="modal-header">
                         <h3>Topic</h3>
@@ -1628,7 +1922,7 @@
         // Contact Form
         document.getElementById('contactForm')?.addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('✅ Message sent to @asim_cfx!');
+            alert('✅ Message sent to @asim_cfx! You will get a response within 24 hours.');
             this.reset();
         });
 
