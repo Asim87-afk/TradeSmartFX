@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>TradeSmart FX - Mobile Forex Course</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0a0f1f;
+            color: white;
+            line-height: 1.4;
+        }
+
+        /* Mobile Container - fits any phone */
+        .mobile-container {
+            max-width: 100%;
+            padding: 10px 12px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            background: #0a0f1f;
+            padding: 12px 0;
+            border-bottom: 2px solid #00c6fb;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #00c6fb;
+        }
+
+        .logo p {
+            font-size: 10px;
+            color: #888;
+        }
+
+        .instagram-badge {
+            background: #00c6fb;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .instagram-badge a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Creator Badge */
+        .creator-card {
+            background: linear-gradient(135deg, #00c6fb20, #005bea20);
+            border: 1px solid #00c6fb;
+            border-radius: 30px;
+            padding: 12px 15px;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .creator-icon {
+            width: 40px;
+            height: 40px;
+            background: #00c6fb;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .creator-text {
+            flex: 1;
+        }
+
+        .creator-text h3 {
+            font-size: 16px;
+            margin-bottom: 2px;
+        }
+
+        .creator-text p {
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        .follow-btn {
+            background: #00c6fb;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0a0f1f, #1a1f2f);
+            padding: 20px 15px;
+            border-radius: 20px;
+            margin: 15px 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .hero h2 span {
+            color: #00c6fb;
+        }
+
+        .hero p {
+            font-size: 13px;
+            color: #aaa;
+            margin-bottom: 15px;
+        }
+
+        /* Navigation Row - Horizontal Scroll */
+        .nav-row {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 8px 0 15px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .nav-row::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-btn {
+            background: #1a1f2f;
+            border: 1px solid #333;
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 500;
+            color: white;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-btn i {
+            font-size: 14px;
+            color: #00c6fb;
+        }
+
+        .nav-btn.active {
+            background: #00c6fb;
+            border-color: #00c6fb;
+        }
+
+        .nav-btn.active i {
+            color: white;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: 20px;
+            margin: 20px 0 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title i {
+            color: #00c6fb;
+            font-size: 18px;
+        }
+
+        /* Category Grid */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin: 15px 0;
+        }
+
+        .category-item {
+            background: #1a1f2f;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 12px 5px;
+            text-align: center;
+        }
+
+        .category-item i {
+            font-size: 20px;
+            color: #00c6fb;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .category-item span {
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        /* Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 10px 0 20px;
+        }
+
+        .card {
+            background: #1a1f2f;
+            border: 1px solid #333;
+            border-radius: 16px;
+            padding: 15px;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            background: #00c6fb20;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #00c6fb;
+        }
+
+        .card-title h4 {
+            font-size: 16px;
+            margin-bottom: 2px;
+        }
+
+        .card-title p {
+            font-size: 10px;
+            color: #00c6fb;
+        }
+
+        .card-desc {
+            font-size: 13px;
+            color: #aaa;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .card-tags {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #00c6fb20;
+            color: #00c6fb;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 500;
+        }
+
+        .nepali-text {
+            background: #0a0f1f;
+            border-left: 3px solid #00c6fb;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 11px;
+            color: #ccc;
+            margin-top: 8px;
+        }
+
+        .learn-btn {
+            background: transparent;
+            border: 1px solid #00c6fb;
+            color: #00c6fb;
+            padding: 10px;
+            border-radius: 30px;
+            width: 100%;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 92%;
+            max-height: 80vh;
+            overflow-y: auto;
+            background: #1a1f2f;
+            border: 2px solid #00c6fb;
+            border-radius: 24px;
+            padding: 20px;
+            z-index: 1001;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #333;
+        }
+
+        .modal-header h3 {
+            font-size: 18px;
+            color: #00c6fb;
+        }
+
+        .close-modal {
+            background: #333;
+            border: none;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-body {
+            font-size: 13px;
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .modal-section {
+            background: #0a0f1f;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+        }
+
+        .modal-section h4 {
+            color: #00c6fb;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .example-box {
+            background: #00c6fb10;
+            border-left: 3px solid #00c6fb;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+
+        /* Tools Section */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .tool-card {
+            background: #1a1f2f;
+            border: 1px solid #333;
+            border-radius: 16px;
+            padding: 15px;
+        }
+
+        .tool-card h4 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #00c6fb;
+        }
+
+        .calculator {
+            background: #0a0f1f;
+            padding: 15px;
+            border-radius: 12px;
+        }
+
+        .calc-input {
+            margin-bottom: 12px;
+        }
+
+        .calc-input label {
+            display: block;
+            font-size: 11px;
+            color: #888;
+            margin-bottom: 4px;
+        }
+
+        .calc-input input, .calc-input select {
+            width: 100%;
+            padding: 10px;
+            background: #1a1f2f;
+            border: 1px solid #333;
+            border-radius: 8px;
+            color: white;
+            font-size: 14px;
+        }
+
+        .calc-btn {
+            background: #00c6fb;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 30px;
+            width: 100%;
+            font-size: 14px;
+            font-weight: 600;
+            margin: 10px 0;
+        }
+
+        .calc-result {
+            background: #00c6fb20;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 700;
+            color: #00c6fb;
+        }
+
+        /* Charts */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .chart-card {
+            background: #1a1f2f;
+            border: 1px solid #333;
+            border-radius: 16px;
+            padding: 15px;
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .chart-pair {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .live-badge {
+            background: #ff4444;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .chart-container {
+            height: 150px;
+            background: #0a0f1f;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .candle-chart {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            padding: 0 5px;
+        }
+
+        .candle {
+            width: 6px;
+            background: #00c6fb;
+            border-radius: 2px;
+        }
+
+        .candle.red {
+            background: #ff4444;
+        }
+
+        .chart-stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            color: #888;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: #1a1f2f;
+            border: 1px solid #333;
+            border-radius: 20px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            background: #0a0f1f;
+            border: 1px solid #333;
+            border-radius: 10px;
+            color: white;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .contact-form textarea {
+            height: 100px;
+        }
+
+        .contact-form button {
+            background: #00c6fb;
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 30px;
+            width: 100%;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1f2f;
+            padding: 25px 15px 15px;
+            border-radius: 30px 30px 0 0;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 15px 0;
+        }
+
+        .footer-links a {
+            color: #888;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .footer-credit {
+            font-size: 12px;
+            color: #888;
+        }
+
+        .footer-credit a {
+            color: #00c6fb;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer-credit i {
+            color: #ff4444;
+        }
+
+        /* Hide sections by default */
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        /* Utility */
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-2 {
+            margin-top: 10px;
+        }
+
+        .mb-2 {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="mobile-container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>TradeSmart FX</h1>
+                    <p>by @asim_cfx</p>
+                </div>
+                <div class="instagram-badge">
+                    <a href="https://instagram.com/asim_cfx">@asim_cfx</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile-container">
+        <!-- Creator Card -->
+        <div class="creator-card">
+            <div class="creator-icon">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="creator-text">
+                <h3>Asim CFX</h3>
+                <p>Forex Educator & Trader</p>
+            </div>
+            <a href="https://instagram.com/asim_cfx" class="follow-btn">Follow</a>
+        </div>
+
+        <!-- Navigation Row -->
+        <div class="nav-row">
+            <button class="nav-btn active" onclick="showSection('home')">
+                <i class="fas fa-home"></i> Home
+            </button>
+            <button class="nav-btn" onclick="showSection('basics')">
+                <i class="fas fa-chart-pie"></i> Basics
+            </button>
+            <button class="nav-btn" onclick="showSection('indicators')">
+                <i class="fas fa-chart-line"></i> Indicators
+            </button>
+            <button class="nav-btn" onclick="showSection('patterns')">
+                <i class="fas fa-candles"></i> Patterns
+            </button>
+            <button class="nav-btn" onclick="showSection('smc')">
+                <i class="fas fa-brain"></i> SMC
+            </button>
+            <button class="nav-btn" onclick="showSection('risk')">
+                <i class="fas fa-shield"></i> Risk
+            </button>
+            <button class="nav-btn" onclick="showSection('tools')">
+                <i class="fas fa-calculator"></i> Tools
+            </button>
+            <button class="nav-btn" onclick="showSection('charts')">
+                <i class="fas fa-chart-simple"></i> Charts
+            </button>
+            <button class="nav-btn" onclick="showSection('contact')">
+                <i class="fas fa-envelope"></i> Contact
+            </button>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
+        <div class="modal-content" id="modalContent" style="display: none;"></div>
+
+        <!-- HOME SECTION -->
+        <div id="home" class="section active">
+            <div class="hero">
+                <h2>Master <span>Forex Trading</span></h2>
+                <p>Complete Forex course in English & Nepali</p>
+                <div style="display: flex; gap: 8px; justify-content: center;">
+                    <span class="tag">SMC</span>
+                    <span class="tag">EMA</span>
+                    <span class="tag">RSI</span>
+                    <span class="tag">Pips</span>
+                </div>
+            </div>
+
+            <div class="section-title">
+                <i class="fas fa-compass"></i>
+                <span>Quick Access</span>
+            </div>
+
+            <div class="category-grid">
+                <div class="category-item" onclick="showSection('basics')">
+                    <i class="fas fa-chart-pie"></i>
+                    <span>Basics</span>
+                </div>
+                <div class="category-item" onclick="showSection('indicators')">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Indicators</span>
+                </div>
+                <div class="category-item" onclick="showSection('patterns')">
+                    <i class="fas fa-candles"></i>
+                    <span>Patterns</span>
+                </div>
+                <div class="category-item" onclick="showSection('smc')">
+                    <i class="fas fa-brain"></i>
+                    <span>SMC</span>
+                </div>
+                <div class="category-item" onclick="showSection('risk')">
+                    <i class="fas fa-shield"></i>
+                    <span>Risk</span>
+                </div>
+                <div class="category-item" onclick="showSection('tools')">
+                    <i class="fas fa-calculator"></i>
+                    <span>Tools</span>
+                </div>
+                <div class="category-item" onclick="showSection('charts')">
+                    <i class="fas fa-chart-simple"></i>
+                    <span>Charts</span>
+                </div>
+                <div class="category-item" onclick="showSection('contact')">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contact</span>
+                </div>
+            </div>
+
+            <div class="section-title">
+                <i class="fas fa-star"></i>
+                <span>Popular Topics</span>
+            </div>
+
+            <div class="cards-grid">
+                <!-- Pips Card -->
+                <div class="card" onclick="openTopic('pips')">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-arrows-up-down"></i></div>
+                        <div class="card-title">
+                            <h4>Pips</h4>
+                            <p>Percentage In Point</p>
+                        </div>
+                    </div>
+                    <div class="card-desc">Smallest price move in Forex. 1 pip = 0.0001 for most pairs.</div>
+                    <div class="card-tags">
+                        <span class="tag">Basics</span>
+                        <span class="tag">Essential</span>
+                    </div>
+                    <div class="nepali-text">📌 पिप भनेको मुद्रा जोडीको सबैभन्दा सानो मूल्य परिवर्तन हो।</div>
+                </div>
+
+                <!-- Lots Card -->
+                <div class="card" onclick="openTopic('lots')">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-weight-scale"></i></div>
+                        <div class="card-title">
+                            <h4>Lots</h4>
+                            <p>Standard, Mini, Micro</p>
+                        </div>
+                    </div>
+                    <div class="card-desc">Standard Lot = 100,000 units, Mini = 10,000, Micro = 1,000</div>
+                    <div class="card-tags">
+                        <span class="tag">Basics</span>
+                        <span class="tag">Sizing</span>
+                    </div>
+                </div>
+
+                <!-- Leverage Card -->
+                <div class="card" onclick="openTopic('leverage')">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-rocket"></i></div>
+                        <div class="card-title">
+                            <h4>Leverage</h4>
+                            <p>1:10 to 1:1000</p>
+                        </div>
+                    </div>
+                    <div class="card-desc">Trade larger with smaller capital. Increases both profit and loss.</div>
+                    <div class="card-tags">
+                        <span class="tag">Basics</span>
+                        <span class="tag">Risk</span>
+                    </div>
+                </div>
+            </div>
+
+            <button class="learn-btn" onclick="showSection('basics')">
+                <i class="fas fa-arrow-right"></i> View All Basics
+            </button>
+        </div>
+
+        <!-- BASICS SECTION -->
+        <div id="basics" class="section">
+            <div class="section-title">
+                <i class="fas fa-chart-pie"></i>
+                <span>Forex Basics</span>
+            </div>
+
+            <div class="cards-grid">
+                <!-- All Basics Cards -->
+                <div class="card" onclick="openTopic('pips')">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-arrows-up-down"></i></div>
+                        <div class="card-title">
+                            <h4>Pips</h4>
+                            <p>Percentage In Point</p>
+                        </div>
+                    </div>
+                    <div class="card-desc">Smallest price move. For most pairs 0.0001, JPY pairs 0.01.</div>
+                </div>
+
+                <div class="card" onclick="openTopic('lots')">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-weight-scale"></i></div>
+                        <div class="card-title">
+                            <h4>Lots</h4>
+                            <p>Standard, Mini, Micro</p>
+                        </div>
+                    </div>
+                    <div class="card-desc">Standard = 100,000 units, Mini = 10,000, Micro = 1,000</div>
+                </div>
+
+                <div class="card" onclick="openTopic('leverage')">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-rocket"></i></div>
+                        <div class="card-title">
+                            <h4>Leverage</h4>
+                            <p>1:10 to 1:1000</p>
+                        </div>
+                    </div>
+                    <div class="card-desc">Control large positions with small capital. Double-edged sword.</div>
+                </div>
+
+                <div class="card" onclick="openTopic('margin')">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-lock"></i></div>
+                        <div class="card-title">
+                            <h4>Margin</h4>
+                            <p>Required, Used, Free</p>
+                        </div>
+                    </div>
+                    <div class="card-desc">Amount needed to open and maintain positions.</div>
+                </div>
+
+                <div class="card" onclick="openTopic('spread')">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-arrows-left-right"></i></div>
+                        <div class="card-title">
+                            <h4>Spread</h4>
+                            <p>Bid-Ask Difference</p>
+                        </div>
+                    </div>
+                    <div class="card-desc">Difference between buy and sell price. How brokers earn.</div>
+                </div>
+
+                <div class="card" onclick="openTopic('swap')">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-clock"></i></div>
+                        <div class="card-title">
+                            <h4>Swap</h4>
+                            <p>Overnight Interest</p>
+                        </div>
+                    </div>
+                    <div class="card-desc">Interest for holding positions overnight. Triple on Wednesday.</div>
+                </div>
+
+                <div class="card" onclick="openTopic('commission')">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-dollar-sign"></i></div>
+                        <div class="card-title">
+                            <h4>Commission</h4>
+                            <p>Trading Fee</p>
+                        </div>
+                    </div>
+                    <div class="card-desc">Fee per trade. Usually $3-7 per lot round turn.</div>
+                </div>
+
+                <div class="card" onclick="openTopic('slippage')">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-bolt"></i></div>
+                        <div class="card-title">
+                            <h4>Slippage</h4>
+                            <p>Price Difference</p>
+                        </div>
+                    </div>
+                    <div class="card-desc">Order executes at different price than expected.</div>
+                </div>
+
+                <div class="card" onclick="openTopic('sessions')">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-clock"></i></div>
+                        <div class="card-title">
+                            <h4>Trading Sessions</h4>
+                            <p>London, NY, Tokyo</p>
+                        </div>
+                    </div>
+                    <div class="card-desc">Best times: London & NY overlap (8 AM - 12 PM EST)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- INDICATORS SECTION -->
+        <div id="indicators" class="section">
+            <div class="section-title">
+                <i class="fas fa-chart-line"></i>
+                <span>Indicators</span>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card" onclick="openTopic('ema')">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+                        <div class="card-title">
+                            <h4>EMA</h4>
+                            <p>Exponential Moving Average</p>
+                        </div>
+                    </div>
+                    <div class="card-desc">Gives more weight to recent prices. Popular: 9, 20, 50, 200.</div>
+                </div>
+
+                <div class="card" onclick="openTopic('rsi')">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-wave-square"></i></div>
+                        <div class="card-title">
+                            <h4>RSI</h4>
+                            <p>Relative Strength Index</p>
+                        </div>
+                    </div>
+                    <div class="card-desc">0-100 scale. Above 70 overbought, below 30 oversold.</div>
+                </div>
+
+                <div class="card" onclick="openTopic('macd')">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-chart-gantt"></i></div>
+                        <div class="card-title">
+                            <h4>MACD</h4>
+                            <p>Moving Average Convergence Divergence</p>
+                        </div>
+                    </div>
+                    <div class="card-desc">Shows relationship between two moving averages.</div>
+                </div>
+
+                <div class="card" onclick="openTopic('bollinger')">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-chart-scatter"></i></div>
+                        <div class="card-title">
+                            <h4>Bollinger Bands</h4>
+                            <p>BB</p>
+                        </div>
+                    </div>
+                    <div class="card-desc">Shows volatility. Middle SMA 20, upper/lower 2 std dev.</div>
+                </div>
+
+                <div class="card" onclick="openTopic('fibonacci')">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-chart-pie"></i></div>
+                        <div class="card-title">
+                            <h4>Fibonacci</h4>
+                            <p>38.2%, 50%, 61.8%</p>
+                        </div>
+                    </div>
+                    <div class="card-desc">Key support/resistance levels. 61.8% is golden ratio.</div>
+                </div>
+
+                <div class="card" onclick="openTopic('atr')">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-arrow-up-wide-short"></i></div>
+                        <div class="card-title">
+                            <h4>ATR</h4>
+                            <p>Average True Range</p>
+                        </div>
+                    </div>
+                    <div class="card-desc">Measures volatility. Used for stop loss placement.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PATTERNS SECTION -->
+        <div id="patterns" class="section">
+            <div class="section-title">
+                <i class="fas fa-candles"></i>
+                <span>Candlestick Patterns</span>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card" onclick="openTopic('doji')">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-minus"></i></div>
+                        <div class="card-title">
+                            <h4>Doji</h4>
+                            <p>Indecision</p>
+                        </div>
+                    </div>
+                    <div class="card-desc">Open and close equal. Shows market indecision.</div>
+                </div>
+
+                <div class="card" onclick="openTopic('hammer')">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-hammer"></i></div>
+                        <div class="card-title">
+                            <h4>Hammer</h4>
+                            <p>Bullish Reversal</p>
+                        </div>
+                    </div>
+                    <div class="card-desc">Long lower wick after downtrend. Buying pressure.</div>
+                </div>
+
+                <div class="card" onclick="openTopic('engulfing')">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-circle"></i></div>
+                        <div class="card-title">
+                            <h4>Engulfing</h4>
+                            <p>Reversal Pattern</p>
+                        </div>
+                    </div>
+                    <div class="card-desc">Second candle completely engulfs first.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SMC SECTION -->
+        <div id="smc" class="section">
+            <div class="section-title">
+                <i class="fas fa-brain"></i>
+                <span>Smart Money Concepts</span>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card" onclick="openTopic('liquidity')">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-water"></i></div>
+                        <div class="card-title">
+                            <h4>Liquidity</h4>
+                            <p>Stop Loss Areas</p>
+                        </div>
+                    </div>
+                    <div class="card-desc">Areas with many stop losses. Smart money hunts these.</div>
+                </div>
+
+                <div class="card" onclick="openTopic('orderblocks')">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-cubes"></i></div>
+                        <div class="card-title">
+                            <h4>Order Blocks</h4>
+                            <p>Institutional Orders</p>
+                        </div>
+                    </div>
+                    <div class="card-desc">Last candle before strong move. Price returns here.</div>
+                </div>
+
+                <div class="card" onclick="openTopic('fvg')">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-gap"></i></div>
+                        <div class="card-title">
+                            <h4>Fair Value Gap</h4>
+                            <p>FVG</p>
+                        </div>
+                    </div>
+                    <div class="card-desc">Gap between candles from fast moves. Gets filled.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RISK SECTION -->
+        <div id="risk" class="section">
+            <div class="section-title">
+                <i class="fas fa-shield"></i>
+                <span>Risk Management</span>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card" onclick="openTopic('onepercent')">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-percent"></i></div>
+                        <div class="card-title">
+                            <h4>1% Rule</h4>
+                            <p>Risk Per Trade</p>
+                        </div>
+                    </div>
+                    <div class="card-desc">Never risk more than 1-2% per trade.</div>
+                </div>
+
+                <div class="card" onclick="openTopic('stoploss')">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-stop"></i></div>
+                        <div class="card-title">
+                            <h4>Stop Loss</h4>
+                            <p>SL</p>
+                        </div>
+                    </div>
+                    <div class="card-desc">Always use stop loss. Place below/above structure.</div>
+                </div>
+
+                <div class="card" onclick="openTopic('rr')">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-scale-balanced"></i></div>
+                        <div class="card-title">
+                            <h4>Risk:Reward</h4>
+                            <p>R:R Ratio</p>
+                        </div>
+                    </div>
+                    <div class="card-desc">Minimum 1:2 recommended. Risk $10 to make $20.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TOOLS SECTION -->
+        <div id="tools" class="section">
+            <div class="section-title">
+                <i class="fas fa-calculator"></i>
+                <span>Trading Tools</span>
+            </div>
+
+            <div class="tools-grid">
+                <!-- Pip Calculator -->
+                <div class="tool-card">
+                    <h4><i class="fas fa-calculator"></i> Pip Value</h4>
+                    <div class="calculator">
+                        <div class="calc-input">
+                            <label>Currency Pair</label>
+                            <select id="pipPair">
+                                <option value="EURUSD">EUR/USD</option>
+                                <option value="GBPUSD">GBP/USD</option>
+                                <option value="USDJPY">USD/JPY</option>
+                            </select>
+                        </div>
+                        <div class="calc-input">
+                            <label>Lot Size</label>
+                            <select id="pipLot">
+                                <option value="100000">Standard (100k)</option>
+                                <option value="10000">Mini (10k)</option>
+                                <option value="1000">Micro (1k)</option>
+                            </select>
+                        </div>
+                        <button class="calc-btn" onclick="calculatePip()">Calculate</button>
+                        <div class="calc-result" id="pipResult">$10.00</div>
+                    </div>
+                </div>
+
+                <!-- Position Size -->
+                <div class="tool-card">
+                    <h4><i class="fas fa-weight-scale"></i> Position Size</h4>
+                    <div class="calculator">
+                        <div class="calc-input">
+                            <label>Account Balance ($)</label>
+                            <input type="number" id="accountBalance" value="1000">
+                        </div>
+                        <div class="calc-input">
+                            <label>Risk %</label>
+                            <input type="number" id="riskPercent" value="1">
+                        </div>
+                        <div class="calc-input">
+                            <label>Stop Loss (pips)</label>
+                            <input type="number" id="stopLoss" value="20">
+                        </div>
+                        <button class="calc-btn" onclick="calculatePosition()">Calculate</button>
+                        <div class="calc-result" id="positionResult">0.05 lots</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CHARTS SECTION -->
+        <div id="charts" class="section">
+            <div class="section-title">
+                <i class="fas fa-chart-simple"></i>
+                <span>Live Charts</span>
+            </div>
+
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <span class="chart-pair">EUR/USD</span>
+                        <span class="live-badge"><i class="fas fa-circle"></i> LIVE</span>
+                    </div>
+                    <div class="chart-container">
+                        <div class="candle-chart" id="eurChart"></div>
+                    </div>
+                    <div class="chart-stats">
+                        <span>H:1.0945</span>
+                        <span>L:1.0876</span>
+                        <span>B:1.0912</span>
+                        <span>A:1.0914</span>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <span class="chart-pair">GBP/USD</span>
+                        <span class="live-badge"><i class="fas fa-circle"></i> LIVE</span>
+                    </div>
+                    <div class="chart-container">
+                        <div class="candle-chart" id="gbpChart"></div>
+                    </div>
+                    <div class="chart-stats">
+                        <span>H:1.2650</span>
+                        <span>L:1.2580</span>
+                        <span>B:1.2615</span>
+                        <span>A:1.2618</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTACT SECTION -->
+        <div id="contact" class="section">
+            <div class="section-title">
+                <i class="fas fa-envelope"></i>
+                <span>Contact @asim_cfx</span>
+            </div>
+
+            <div class="creator-card">
+                <div class="creator-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="creator-text">
+                    <h3>Asim CFX</h3>
+                    <p>@asim_cfx</p>
+                </div>
+                <a href="https://instagram.com/asim_cfx" class="follow-btn">DM me</a>
+            </div>
+
+            <form class="contact-form" id="contactForm">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message... (नेपालीमा पनि लेख्न सक्नुहुन्छ)" required></textarea>
+                <button type="submit">Send to @asim_cfx</button>
+            </form>
+
+            <p class="text-center" style="color: #00c6fb; font-style: italic; margin-top: 15px;">
+                "सिक्नुहोस्, बुझ्नुहोस्, सफल बन्नुहोस्"
+            </p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-links">
+                <a href="#" onclick="showSection('home')">Home</a>
+                <a href="#" onclick="showSection('basics')">Basics</a>
+                <a href="#" onclick="showSection('indicators')">Indicators</a>
+                <a href="#" onclick="showSection('contact')">Contact</a>
+            </div>
+            <div class="footer-credit">
+                <p>© 2026 TradeSmart FX · Created with <i class="fas fa-heart"></i> by <a href="https://instagram.com/asim_cfx">@asim_cfx</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Show/Hide Sections
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            closeModal();
+            window.scrollTo(0, 0);
+        }
+
+        // Open Topic Modal
+        function openTopic(topic) {
+            const modalOverlay = document.getElementById('modalOverlay');
+            const modalContent = document.getElementById('modalContent');
+            
+            let content = '';
+
+            if (topic === 'pips') {
+                content = `
+                    <div class="modal-header">
+                        <h3><i class="fas fa-arrows-up-down"></i> Pips</h3>
+                        <button class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-section">
+                            <h4>What is a Pip?</h4>
+                            <p>A pip is the smallest price move in Forex. For most pairs: 1 pip = 0.0001. For JPY pairs: 1 pip = 0.01.</p>
+                            <div class="example-box">📌 EUR/USD 1.1000 to 1.1001 = 1 pip</div>
+                        </div>
+                        <div class="modal-section">
+                            <h4>Pip Value</h4>
+                            <p>Standard Lot = $10 per pip<br>Mini Lot = $1 per pip<br>Micro Lot = $0.10 per pip</p>
+                        </div>
+                        <div class="nepali-text">पिप भनेको मुद्रा जोडीको सबैभन्दा सानो मूल्य परिवर्तन हो।</div>
+                    </div>
+                `;
+            } else if (topic === 'lots') {
+                content = `
+                    <div class="modal-header">
+                        <h3><i class="fas fa-weight-scale"></i> Lots</h3>
+                        <button class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-section">
+                            <h4>Lot Sizes</h4>
+                            <p>Standard Lot = 100,000 units<br>Mini Lot = 10,000 units<br>Micro Lot = 1,000 units<br>Nano Lot = 100 units</p>
+                        </div>
+                        <div class="modal-section">
+                            <h4>Pip Values</h4>
+                            <p>Standard = $10 per pip<br>Mini = $1 per pip<br>Micro = $0.10 per pip</p>
+                        </div>
+                        <div class="nepali-text">स्ट्यान्डर्ड लट = १००,००० युनिट, मिनी लट = १०,००० युनिट</div>
+                    </div>
+                `;
+            } else if (topic === 'leverage') {
+                content = `
+                    <div class="modal-header">
+                        <h3><i class="fas fa-rocket"></i> Leverage</h3>
+                        <button class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-section">
+                            <h4>What is Leverage?</h4>
+                            <p>Control large positions with small capital. 1:100 means $1,000 controls $100,000.</p>
+                        </div>
+                        <div class="modal-section">
+                            <h4>Common Ratios</h4>
+                            <p>1:10 (Conservative)<br>1:100 (Common)<br>1:500 (High Risk)</p>
+                        </div>
+                        <div class="warning-box" style="background: #ff444420; padding: 10px; border-radius: 8px;">
+                            ⚠️ High leverage = High risk! Can wipe account quickly.
+                        </div>
+                    </div>
+                `;
+            } else if (topic === 'margin') {
+                content = `
+                    <div class="modal-header">
+                        <h3><i class="fas fa-lock"></i> Margin</h3>
+                        <button class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-section">
+                            <h4>What is Margin?</h4>
+                            <p>Amount required to open a trade. Required Margin = (Position Size × Price) ÷ Leverage</p>
+                        </div>
+                        <div class="modal-section">
+                            <h4>Margin Call</h4>
+                            <p>When Margin Level falls below 100%, broker starts closing positions.</p>
+                        </div>
+                    </div>
+                `;
+            } else if (topic === 'spread') {
+                content = `
+                    <div class="modal-header">
+                        <h3><i class="fas fa-arrows-left-right"></i> Spread</h3>
+                        <button class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-section">
+                            <h4>What is Spread?</h4>
+                            <p>Difference between Buy (Ask) and Sell (Bid) price. How brokers make money.</p>
+                        </div>
+                        <div class="modal-section">
+                            <h4>Typical Spreads</h4>
+                            <p>EUR/USD: 0.1-1.0 pips<br>GBP/USD: 0.5-2.0 pips</p>
+                        </div>
+                    </div>
+                `;
+            } else if (topic === 'swap') {
+                content = `
+                    <div class="modal-header">
+                        <h3><i class="fas fa-clock"></i> Swap / Rollover</h3>
+                        <button class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-section">
+                            <h4>What is Swap?</h4>
+                            <p>Interest paid/earned for holding positions overnight. Triple swap on Wednesday.</p>
+                        </div>
+                    </div>
+                `;
+            } else if (topic === 'ema') {
+                content = `
+                    <div class="modal-header">
+                        <h3><i class="fas fa-chart-line"></i> EMA</h3>
+                        <button class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-section">
+                            <h4>Exponential Moving Average</h4>
+                            <p>Gives more weight to recent prices. Reacts faster than SMA.</p>
+                        </div>
+                        <div class="modal-section">
+                            <h4>Popular Periods</h4>
+                            <p>EMA 9, 20, 50, 200. Golden Cross = 50 above 200 = Bullish.</p>
+                        </div>
+                    </div>
+                `;
+            } else if (topic === 'rsi') {
+                content = `
+                    <div class="modal-header">
+                        <h3><i class="fas fa-wave-square"></i> RSI</h3>
+                        <button class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-section">
+                            <h4>Relative Strength Index</h4>
+                            <p>0-100 scale. Above 70 = Overbought, Below 30 = Oversold.</p>
+                        </div>
+                        <div class="modal-section">
+                            <h4>Divergence</h4>
+                            <p>Price makes lower low, RSI makes higher low = Bullish reversal.</p>
+                        </div>
+                    </div>
+                `;
+            } else if (topic === 'macd') {
+                content = `
+                    <div class="modal-header">
+                        <h3><i class="fas fa-chart-gantt"></i> MACD</h3>
+                        <button class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-section">
+                            <h4>Moving Average Convergence Divergence</h4>
+                            <p>MACD Line, Signal Line, Histogram. Crossovers generate signals.</p>
+                        </div>
+                    </div>
+                `;
+            } else if (topic === 'bollinger') {
+                content = `
+                    <div class="modal-header">
+                        <h3><i class="fas fa-chart-scatter"></i> Bollinger Bands</h3>
+                        <button class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-section">
+                            <h4>Bollinger Bands</h4>
+                            <p>Middle: SMA 20, Upper/Lower: 2 standard deviations. Shows volatility.</p>
+                        </div>
+                    </div>
+                `;
+            } else if (topic === 'fibonacci') {
+                content = `
+                    <div class="modal-header">
+                        <h3><i class="fas fa-chart-pie"></i> Fibonacci</h3>
+                        <button class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-section">
+                            <h4>Key Levels</h4>
+                            <p>38.2%, 50%, 61.8% (Golden Ratio), 78.6%, 127.2%, 161.8%</p>
+                        </div>
+                    </div>
+                `;
+            } else if (topic === 'liquidity') {
+                content = `
+                    <div class="modal-header">
+                        <h3><i class="fas fa-water"></i> Liquidity (SMC)</h3>
+                        <button class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-section">
+                            <h4>What is Liquidity?</h4>
+                            <p>Areas with many stop losses. Smart money hunts these before moving price.</p>
+                        </div>
+                        <div class="modal-section">
+                            <h4>Types</h4>
+                            <p>Buy-side Liquidity: Above highs<br>Sell-side Liquidity: Below lows</p>
+                        </div>
+                    </div>
+                `;
+            } else if (topic === 'orderblocks') {
+                content = `
+                    <div class="modal-header">
+                        <h3><i class="fas fa-cubes"></i> Order Blocks</h3>
+                        <button class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-section">
+                            <h4>What are Order Blocks?</h4>
+                            <p>Last candle before strong move. Bullish OB = last down before up. Price returns to these areas.</p>
+                        </div>
+                    </div>
+                `;
+            } else if (topic === 'fvg') {
+                content = `
+                    <div class="modal-header">
+                        <h3><i class="fas fa-gap"></i> Fair Value Gap</h3>
+                        <button class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-section">
+                            <h4>What is FVG?</h4>
+                            <p>Gap between candles from fast moves. Price often returns to fill these gaps.</p>
+                        </div>
+                        <div class="nepali-text">FVG भनेको तीव्र गतिमा बजार चल्दा क्यान्डलहरू बीच बनेको ग्याप हो।</div>
+                    </div>
+                `;
+            } else if (topic === 'onepercent') {
+                content = `
+                    <div class="modal-header">
+                        <h3><i class="fas fa-percent"></i> 1% Rule</h3>
+                        <button class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-section">
+                            <h4>Never risk more than 1-2% per trade</h4>
+                            <p>$1000 account = Max $10-20 risk per trade. This protects your account.</p>
+                        </div>
+                        <div class="example-box">📌 If you risk 1% and lose 10 trades, you still have 90% capital.</div>
+                    </div>
+                `;
+            } else if (topic === 'stoploss') {
+                content = `
+                    <div class="modal-header">
+                        <h3><i class="fas fa-stop"></i> Stop Loss</h3>
+                        <button class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-section">
+                            <h4>ALWAYS use stop loss!</h4>
+                            <p>Place below structure for longs, above structure for shorts. Never move away from price.</p>
+                        </div>
+                    </div>
+                `;
+            } else if (topic === 'rr') {
+                content = `
+                    <div class="modal-header">
+                        <h3><i class="fas fa-scale-balanced"></i> Risk:Reward Ratio</h3>
+                        <button class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-section">
+                            <h4>Minimum 1:2 Recommended</h4>
+                            <p>Risk $10 to make $20 = 1:2 R:R. Even 40% win rate becomes profitable.</p>
+                        </div>
+                    </div>
+                `;
+            } else {
+                content = `
+                    <div class="modal-header">
+                        <h3>Topic</h3>
+                        <button class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Details coming soon...</p>
+                    </div>
+                `;
+            }
+
+            modalContent.innerHTML = content;
+            modalContent.style.display = 'block';
+            modalOverlay.classList.add('active');
+        }
+
+        // Close Modal
+        function closeModal() {
+            document.getElementById('modalContent').style.display = 'none';
+            document.getElementById('modalOverlay').classList.remove('active');
+        }
+
+        // Calculator Functions
+        function calculatePip() {
+            const pair = document.getElementById('pipPair').value;
+            const lotSize = parseFloat(document.getElementById('pipLot').value);
+            let pipValue = 0;
+            
+            if (pair === 'USDJPY') {
+                pipValue = (0.01 / 150) * lotSize;
+            } else {
+                pipValue = (0.0001 / 1.1) * lotSize;
+            }
+            
+            document.getElementById('pipResult').innerHTML = `$${pipValue.toFixed(2)}`;
+        }
+
+        function calculatePosition() {
+            const balance = parseFloat(document.getElementById('accountBalance').value);
+            const riskPercent = parseFloat(document.getElementById('riskPercent').value);
+            const stopLoss = parseFloat(document.getElementById('stopLoss').value);
+            
+            const riskAmount = balance * (riskPercent / 100);
+            const pipValue = 10;
+            const positionSize = riskAmount / (stopLoss * pipValue);
+            
+            document.getElementById('positionResult').innerHTML = positionSize.toFixed(2) + ' lots';
+        }
+
+        // Live Charts
+        function updateCharts() {
+            const charts = ['eurChart', 'gbpChart'];
+            charts.forEach(id => {
+                const container = document.getElementById(id);
+                if (!container) return;
+                
+                let candles = '';
+                for (let i = 0; i < 15; i++) {
+                    const height = Math.floor(Math.random() * 60) + 20;
+                    const isRed = Math.random() > 0.5;
+                    candles += `<div class="candle ${isRed ? 'red' : ''}" style="height: ${height}%"></div>`;
+                }
+                container.innerHTML = candles;
+            });
+        }
+
+        // Contact Form
+        document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('✅ Message sent to @asim_cfx!');
+            this.reset();
+        });
+
+        // Initialize
+        updateCharts();
+        setInterval(updateCharts, 5000);
+    </script>
+</body>
+</html>
