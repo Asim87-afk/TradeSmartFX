@@ -655,6 +655,26 @@
         .text-center {
             text-align: center;
         }
+        /* Fade In Animation */
+@keyframes fadeInContent {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section {
+    display: none;
+}
+
+.section.active {
+    display: block;
+    animation: fadeInContent 0.3s ease forwards;
+}
     </style>
 </head>
 <body>
