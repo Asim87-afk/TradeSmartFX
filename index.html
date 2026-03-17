@@ -25,11 +25,11 @@
             line-height: 1.4;
         }
 
-        /* Simple Fade In Up Animation */
-        @keyframes fadeInUp {
+        /* Fade Animation - 0.5 seconds */
+        @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(15px);
+                transform: translateY(10px);
             }
             to {
                 opacity: 1;
@@ -37,20 +37,13 @@
             }
         }
 
-        .fade-up {
-            animation: fadeInUp 0.4s ease forwards;
+        .section {
+            display: none;
         }
 
-        .delay-1 {
-            animation-delay: 0.1s;
-        }
-
-        .delay-2 {
-            animation-delay: 0.2s;
-        }
-
-        .delay-3 {
-            animation-delay: 0.3s;
+        .section.active {
+            display: block;
+            animation: fadeIn 0.5s ease forwards;
         }
 
         /* Mobile Container */
@@ -197,6 +190,7 @@
             display: flex;
             align-items: center;
             gap: 6px;
+            cursor: pointer;
         }
 
         .nav-btn i {
@@ -241,6 +235,7 @@
             border-radius: 12px;
             padding: 12px 5px;
             text-align: center;
+            cursor: pointer;
         }
 
         .category-item i {
@@ -626,6 +621,7 @@
             color: #888;
             text-decoration: none;
             font-size: 13px;
+            cursor: pointer;
         }
 
         .footer-credit {
@@ -643,45 +639,16 @@
             color: #ff4444;
         }
 
-        /* Hide sections by default */
-        .section {
-            display: none;
-        }
-
-        .section.active {
-            display: block;
-        }
-
         .text-center {
             text-align: center;
         }
-        /* Fade In Animation */
-@keyframes fadeInContent {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.section {
-    display: none;
-}
-
-.section.active {
-    display: block;
-    animation: fadeInContent 0.3s ease forwards;
-}
     </style>
 </head>
 <body>
     <!-- Header -->
     <div class="header">
         <div class="mobile-container">
-            <div class="header-content fade-up">
+            <div class="header-content">
                 <div class="logo">
                     <h1>TradeSmart FX</h1>
                     <p>by @asim_cfx</p>
@@ -695,7 +662,7 @@
 
     <div class="mobile-container">
         <!-- Creator Card -->
-        <div class="creator-card fade-up delay-1">
+        <div class="creator-card">
             <div class="creator-icon">
                 <i class="fas fa-user"></i>
             </div>
@@ -707,7 +674,7 @@
         </div>
 
         <!-- Navigation Row -->
-        <div class="nav-row fade-up delay-2">
+        <div class="nav-row">
             <button class="nav-btn active" onclick="showSection('home')">
                 <i class="fas fa-home"></i> Home
             </button>
@@ -743,7 +710,7 @@
 
         <!-- HOME SECTION -->
         <div id="home" class="section active">
-            <div class="hero fade-up">
+            <div class="hero">
                 <h2>Master <span>Forex Trading</span></h2>
                 <p>Complete Forex course in English & Nepali</p>
                 <div style="display: flex; gap: 8px; justify-content: center;">
@@ -754,54 +721,54 @@
                 </div>
             </div>
 
-            <div class="section-title fade-up delay-1">
+            <div class="section-title">
                 <i class="fas fa-compass"></i>
                 <span>Quick Access</span>
             </div>
 
             <div class="category-grid">
-                <div class="category-item fade-up" onclick="showSection('basics')">
+                <div class="category-item" onclick="showSection('basics')">
                     <i class="fas fa-chart-pie"></i>
                     <span>Basics</span>
                 </div>
-                <div class="category-item fade-up delay-1" onclick="showSection('indicators')">
+                <div class="category-item" onclick="showSection('indicators')">
                     <i class="fas fa-chart-line"></i>
                     <span>Indicators</span>
                 </div>
-                <div class="category-item fade-up delay-2" onclick="showSection('patterns')">
+                <div class="category-item" onclick="showSection('patterns')">
                     <i class="fas fa-candles"></i>
                     <span>Patterns</span>
                 </div>
-                <div class="category-item fade-up delay-3" onclick="showSection('smc')">
+                <div class="category-item" onclick="showSection('smc')">
                     <i class="fas fa-brain"></i>
                     <span>SMC</span>
                 </div>
-                <div class="category-item fade-up" onclick="showSection('risk')">
+                <div class="category-item" onclick="showSection('risk')">
                     <i class="fas fa-shield"></i>
                     <span>Risk</span>
                 </div>
-                <div class="category-item fade-up delay-1" onclick="showSection('tools')">
+                <div class="category-item" onclick="showSection('tools')">
                     <i class="fas fa-calculator"></i>
                     <span>Tools</span>
                 </div>
-                <div class="category-item fade-up delay-2" onclick="showSection('charts')">
+                <div class="category-item" onclick="showSection('charts')">
                     <i class="fas fa-chart-simple"></i>
                     <span>Charts</span>
                 </div>
-                <div class="category-item fade-up delay-3" onclick="showSection('contact')">
+                <div class="category-item" onclick="showSection('contact')">
                     <i class="fas fa-envelope"></i>
                     <span>Contact</span>
                 </div>
             </div>
 
-            <div class="section-title fade-up">
+            <div class="section-title">
                 <i class="fas fa-star"></i>
                 <span>Popular Topics</span>
             </div>
 
             <div class="cards-grid">
                 <!-- Pips Card -->
-                <div class="card fade-up" onclick="openTopic('pips')">
+                <div class="card" onclick="openTopic('pips')">
                     <div class="card-header">
                         <div class="card-icon"><i class="fas fa-arrows-up-down"></i></div>
                         <div class="card-title">
@@ -817,7 +784,7 @@
                 </div>
 
                 <!-- Lots Card -->
-                <div class="card fade-up delay-1" onclick="openTopic('lots')">
+                <div class="card" onclick="openTopic('lots')">
                     <div class="card-header">
                         <div class="card-icon"><i class="fas fa-weight-scale"></i></div>
                         <div class="card-title">
@@ -833,7 +800,7 @@
                 </div>
 
                 <!-- Leverage Card -->
-                <div class="card fade-up delay-2" onclick="openTopic('leverage')">
+                <div class="card" onclick="openTopic('leverage')">
                     <div class="card-header">
                         <div class="card-icon"><i class="fas fa-rocket"></i></div>
                         <div class="card-title">
@@ -1373,15 +1340,24 @@
     </div>
 
     <script>
-        // Show/Hide Sections
+        // Show/Hide Sections with Fade Animation
         function showSection(sectionId) {
-            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(s => {
+                s.classList.remove('active');
+            });
+            
+            // Show selected section with fade animation (automatically from CSS)
             document.getElementById(sectionId).classList.add('active');
             
+            // Update active button
             document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
             
+            // Close any open modal
             closeModal();
+            
+            // Scroll to top
             window.scrollTo(0, 0);
         }
 
